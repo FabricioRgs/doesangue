@@ -143,7 +143,7 @@ img {
 }
 
 .nav a {
-    color: #666666;
+    color: #ff4d4d;
     display: block;
     padding: 0.25em 0.7em;
     text-decoration: none;
@@ -158,8 +158,35 @@ img {
     border-radius: 0;
 }
 
+#DivLateral{
+    position:relative;
+    border-width:2px;
+    width:100px;
+    height: 100px;
+    float: left;
+}
+#DivA{
+    position: relative;
+    border-width:2px;
+    width: 100px;
+    height: 100px;
+    left:0px;
+    float: left;
+}
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+     zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
 .nav a:active, .nav a:visited {
-    color: #666666;
+    color: #ff4d4d;
 }
 
 .nav a:focus, .nav a:hover {
@@ -194,7 +221,7 @@ img {
 }
 
 .nav li.dropdown.show ul.dropdown-menu {
-    background-color: #424649;
+    background-color: #ff8080;
 }
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */

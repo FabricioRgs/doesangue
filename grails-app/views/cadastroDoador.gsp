@@ -3,6 +3,27 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Doe Sangue</title>
+
+    <script type="text/javascript">
+
+			function fMasc(objeto,mascara) {
+				obj=objeto
+				masc=mascara
+				setTimeout("fMascEx()",1)
+			}
+			function fMascEx() {
+				obj.value=masc(obj.value)
+			}
+			function mCPF(cpf){
+				cpf=cpf.replace(/\D/g,"")
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+				cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+				return cpf
+			}
+			
+		</script>
+
 </head>
 <body>
 <content tag="nav">
@@ -23,7 +44,7 @@
 
 <div id="content" role="main" style="background-color:#fffff;height:600px">
     <section class="row colset-2-its">
-        <h1>Doe Sangue</h1>
+        <h1>Cadastro de Doador</h1>
 
         <!--<p>
             Congratulations, you have successfully started your first Grails application! At the moment
@@ -32,42 +53,29 @@
             this application, click on each to execute its default action:
         </p> -->
 
-        <div class="col-lg-6 container" style="border-style:solid;border-radius: 10px;">
-            <h2 style ="text-align:center">Doadores</h2>
-
-            <div id="DivA" class="col-lg-6" >
-                <a href="/cadDoador">
-                    <asset:image src="add.png" alt="Grails Documentation" class="float-left"/>
-                </a>
-                <p style = "text-align:Center">Cadastrar</p>
-            </div>
-
-            <div  id="DivLateral" class="col-lg-6 ">
-                <a href="/doador">
-                    <asset:image src="list.png" alt="Grails Documentation" class="float-left"/>
-                </a>
-                <p style = "text-align:Center">Listar</p>
-            </div>
-        </div>
-
-
-        <div class="col-lg-6 container" style="border-style:solid;border-radius: 10px;">
-            <h2 style ="text-align:center">Agendamento</h2>
-            <div style="align=center">
-                <div id="DivA" class="col-lg-6" >
-                    <a href="/agendamento/create">
-                        <asset:image src="agendar.png" alt="Grails Documentation" class="float-left"/>
-                    </a>
-                    <p style = "text-align:Center" >Agendar</p>
+        <div class="col-lg-12">
+            
+            <form action="/doador/save" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do doador">
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" onkeydown="javascript: fMasc( this, mCPF );" class="form-control cpf-mask" id="cpf" name= "cpf" placeholder="Digite o cpf do doador">
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço do doador">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail do doador">
                 </div>
 
-                <div  id="DivLateral" class="col-lg-6 ">
-                    <a href="/agendamento">
-                        <asset:image src="list.png" alt="Grails Documentation" class="float-left"/>
-                    </a>
-                    <p style = "text-align:Center">Listar</p>
-                </div>
-            </div>
+                <button type="submit" class="btn btn-danger" style="align:center">Cadastrar</button>
+            </form>
+
         </div>
 
         </br>

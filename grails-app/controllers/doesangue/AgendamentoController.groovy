@@ -1,8 +1,10 @@
 package doesangue
 
 class AgendamentoController {
-    def delete() {
+
+      def delete() {
         super.delete()
     }
+    
     static scaffold = Agendamento
 }

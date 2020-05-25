@@ -10,6 +10,7 @@ class UrlMappings {
         }
 
         "/"(view:"/index")
+        "/cadDoador"(view:"/cadastroDoador")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
