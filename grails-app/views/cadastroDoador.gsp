@@ -58,19 +58,19 @@
             <form action="/doador/save" method="post">
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do doador">
+                    <input required type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do doador">
                 </div>
                 <div class="form-group">
                     <label for="cpf">CPF</label>
-                    <input type="text" onkeydown="javascript: fMasc( this, mCPF );" class="form-control cpf-mask" id="cpf" name= "cpf" placeholder="Digite o cpf do doador">
+                    <input required type="text" onkeydown="javascript: fMasc( this, mCPF );" class="form-control cpf-mask" id="cpf" name= "cpf" placeholder="Digite o cpf do doador">
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço</label>
-                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço do doador">
+                    <input required type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço do doador">
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail do doador">
+                    <input required type="email" class="form-control" id="email" name="email" placeholder="E-mail do doador">
                 </div>
 
                 <button type="submit" class="btn btn-danger" style="align:center">Cadastrar</button>

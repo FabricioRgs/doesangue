@@ -413,7 +413,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
     box-shadow: 0 0 0.5em #ffaaaa;
 }
 
-/* TABLES */
+ /*TABLES 
 
 table {
     border-top: 1px solid #DFDFDF;
@@ -439,6 +439,7 @@ td, th {
     padding: 0.5em 0.6em;
     text-align: left;
     vertical-align: top;
+    ;
 }
 
 th {
@@ -494,7 +495,7 @@ th.desc a {
 
 th:hover, tr:hover {
     background: #f5f5f5;
-}
+} */
 
 /* PAGINATION */
 

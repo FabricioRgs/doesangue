@@ -10,7 +10,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li class="dropdown-item"><a href="/cadDoador">Doador</a></li>
-            <li class="dropdown-item"><a href="/cadDoador">Agendamento</a></li>
+            <li class="dropdown-item"><a href="/cadAgendamento">Agendamento</a></li>
         </ul>
     </li>
 </content>
@@ -31,7 +31,6 @@
             whatever content you may choose. Below is a list of controllers that are currently deployed in
             this application, click on each to execute its default action:
         </p> -->
-
         <div class="col-lg-6 container" style="border-style:solid;border-radius: 10px;">
             <h2 style ="text-align:center">Doadores</h2>
 
@@ -43,7 +42,7 @@
             </div>
 
             <div  id="DivLateral" class="col-lg-6 ">
-                <a href="/doador">
+                <a href="/listagemDoadores">
                     <asset:image src="list.png" alt="Grails Documentation" class="float-left"/>
                 </a>
                 <p style = "text-align:Center">Listar</p>
@@ -55,14 +54,14 @@
             <h2 style ="text-align:center">Agendamento</h2>
             <div style="align=center">
                 <div id="DivA" class="col-lg-6" >
-                    <a href="/agendamento/create">
+                    <a href="/cadAgendamento">
                         <asset:image src="agendar.png" alt="Grails Documentation" class="float-left"/>
                     </a>
                     <p style = "text-align:Center" >Agendar</p>
                 </div>
 
                 <div  id="DivLateral" class="col-lg-6 ">
-                    <a href="/agendamento">
+                    <a href="/listagemAgendamento">
                         <asset:image src="list.png" alt="Grails Documentation" class="float-left"/>
                     </a>
                     <p style = "text-align:Center">Listar</p>
