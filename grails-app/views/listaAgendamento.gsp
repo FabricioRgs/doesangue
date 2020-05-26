@@ -6,7 +6,14 @@
 
     <script>
         window.onload = populateSelect();
-    
+
+        function dateToYMD(date) {
+            var d = date.getDate();
+            var m = date.getMonth() + 1; //Month from 0 to 11
+            var y = date.getFullYear();
+            return '' + (d <= 9 ? '0' + d : d) + '-' +  (m<=9 ? '0' + m : m) + '-' + y;
+        }
+
         function populateSelect() {
     
             // CREATE AN XMLHttpRequest OBJECT, WITH GET METHOD.
@@ -20,11 +27,12 @@
                     // PARSE JSON DATA.
                     var birds = JSON.parse(xhr.responseText);
     
-                    var ele = document.getElementById('tabelaDoador');
+                    var ele = document.getElementById('tabelaAgendamento');
                     for (var i = 0; i < birds.length; i++) {
                         // BIND DATA TO <select> ELEMENT.
-                        ele.innerHTML = ele.innerHTML +
-                            '<tr > <td>' + birds[i].doador.id + '</td> ' + '<td>' + birds[i].dataAgendamento + '</td> ' + '<td>' + birds[i].status + '</td> ' + '<td align:center><a href=/agendamento/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
+                            var mydate = new Date(birds[i].dataAgendamento.substring(0,10));
+                            ele.innerHTML = ele.innerHTML +
+                                '<tr > <td>' + birds[i].doador.id + '</td> ' + '<td>' + dateToYMD(mydate) + '</td> ' + '<td>' + birds[i].status + '</td> ' + '<td align:center><a href=/agendamento/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
                     }
                 }
             };
@@ -75,7 +83,7 @@
                         <th scope="col">Deletar</th>
                     </tr>
                 </thead>
-                <tbody id="tabelaDoador">
+                <tbody id="tabelaAgendamento">
 
                 </tbody>
             </table>
