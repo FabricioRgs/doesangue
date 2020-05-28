@@ -1,5 +1,7 @@
 package doesangue
 
+import grails.converters.JSON
+
 class AgendamentoController {
 
     def delete() {
@@ -7,6 +9,7 @@ class AgendamentoController {
     }
 
     def index() {
+      JSON.use('deep')
       render Agendamento.getAll() as grails.converters.JSON
     }
     
