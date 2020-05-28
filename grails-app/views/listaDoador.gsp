@@ -6,28 +6,21 @@
 
     <script>
         window.onload = populateSelect();
-    
-        function populateSelect() {
-    
-            // CREATE AN XMLHttpRequest OBJECT, WITH GET METHOD.
-            var xhr = new XMLHttpRequest(), 
-                method = 'GET',
-                overrideMimeType = 'application/json',
-                url = '/doador/index';       
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                        
-                        // PARSE JSON DATA.
-                        var birds = JSON.parse(xhr.responseText);
         
-                        var ele = document.getElementById('tabelaDoador');
-                        for (var i = 0; i < birds.length; i++) {
-                            ele.innerHTML = ele.innerHTML +
-                            '<tr > <td>' + birds[i].nome + '</td> ' + '<td>' + birds[i].endereco + '</td> ' + '<td>' + birds[i].cpf + '</td> ' + '<td>' + birds[i].email + '</td>'+ '<td align:center><a href=/doador/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
-                            //  ele.innerHTML = ele.innerHTML +
-                            //  '<tr > <td>' + birds[i].nome + '</td> ' + '<td>' + birds[i].endereco + '</td> ' + '<td>' + birds[i].cpf + '</td> ' + '<td>' + birds[i].email + '</td>'+ '<td align:center><form action=/doador/delete/' + birds[i].id + ' method=post> <input class=delete type=submit value=Remover onclick=return confirm(Tem certeza?);/></form></td>'  ;
-                        }
+        function populateSelect() {
+            var xhr = new XMLHttpRequest(), 
+            method = 'GET',
+            overrideMimeType = 'application/json',
+            url = '/doador/index';       
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    var birds = JSON.parse(xhr.responseText);
+                    var ele = document.getElementById('tabelaDoador');
+                    for (var i = 0; i < birds.length; i++) {
+                        ele.innerHTML = ele.innerHTML +
+                        '<tr > <td>' + birds[i].nome + '</td> ' + '<td>' + birds[i].endereco + '</td> ' + '<td>' + birds[i].cpf + '</td> ' + '<td>' + birds[i].email + '</td>'+ '<td align:center><a href=/doador/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
                     }
+                }
             };
             xhr.open(method, url, true);
             xhr.send();

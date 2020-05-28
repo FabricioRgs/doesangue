@@ -14,19 +14,42 @@
             return '' + (d <= 9 ? '0' + d : d) + '-' +  (m<=9 ? '0' + m : m) + '-' + y;
         }
 
+
         function populateSelect() {
+            
+            let searchParams = new URLSearchParams(window.location.search);
+            var urlCriada;
+            if(searchParams.has('id'))
+            {
+                let param = searchParams.get('id');
+                urlCriada = "doador/?id=" + param;
+            } 
+
+            //alert(urlCriada);
             var xhr = new XMLHttpRequest(), 
             method = 'GET',
             overrideMimeType = 'application/json',
-            url = '/agendamento/index';       
+            url = urlCriada;     
+            
             xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+
                     var birds = JSON.parse(xhr.responseText);
-                    var ele = document.getElementById('tabelaAgendamento');
+
+                    var nome = document.getElementById('nome');
+                    var id = document.getElementById('id');
+                    var cpf = document.getElementById('cpf');
+                    var endereco = document.getElementById('endereco');
+                    var email = document.getElementById('email');
                     for (var i = 0; i < birds.length; i++) {
-                            var mydate = new Date(birds[i].dataAgendamento.substring(0,10));
-                            ele.innerHTML = ele.innerHTML +
-                                '<tr > <td>' + birds[i].doador.nome + '</td> ' + '<td>' + dateToYMD(mydate) + '</td> ' + '<td>' + birds[i].status + '</td> ' + '<td align:center><a href=/agendamento/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
+                        alert(birds[i].nome);
+                        $('#nome').val(birds[i].nome);
+                        $('#id').val(birds[i].id);
+                        $('#cpf').val(birds[i].cpf);
+                        $('#endereco').val(birds[i].endereco);
+                        $('#email').val(birds[i].email);
+                        $("#form").attr('action', '/doador/update/' + birds[i].id);
                     }
                 }
             };
@@ -56,7 +79,7 @@
 
 <div id="content" role="main" style="background-color:#fffff;height:600px">
     <section class="row colset-2-its">
-        <h1>Listagem de Doadores</h1>
+        <h1>Alterar Doador</h1>
 
         <!--<p>
             Congratulations, you have successfully started your first Grails application! At the moment
@@ -64,21 +87,30 @@
             whatever content you may choose. Below is a list of controllers that are currently deployed in
             this application, click on each to execute its default action:
         </p> -->
+        <div class="col-lg-12">
+            
+            <form id="form" method="post">
+                <input required type="text" class="form-control" id="id" name="id" hidden>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input required type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do doador">
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input required type="text" onkeydown="javascript: fMasc( this, mCPF );" class="form-control cpf-mask" id="cpf" name= "cpf" placeholder="Digite o cpf do doador">
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input required type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço do doador">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input required type="email" class="form-control" id="email" name="email" placeholder="E-mail do doador">
+                </div>
 
-        <div class="w3-container">
-            <table class="table table-striped" >
-                <thead>
-                    <tr>
-                        <th scope="col">Doador</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Deletar</th>
-                    </tr>
-                </thead>
-                <tbody id="tabelaAgendamento">
+                <button type="submit" class="btn btn-danger" style="align:center">Alterar</button>
+            </form>
 
-                </tbody>
-            </table>
         </div>
 
 
