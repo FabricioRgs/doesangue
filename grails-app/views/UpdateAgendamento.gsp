@@ -66,6 +66,15 @@
                         $('#id').val(birds[i].id);
                         $("#sel").val(birds[i].doador.id);
                         $("#form").attr('action', '/agendamento/update/' + birds[i].id);
+                        var dataAgendamento_ = new Date(birds[i].dataAgendamento.substring(0,10));
+                        var d = dataAgendamento_.getDate();
+                        var m = dataAgendamento_.getMonth() + 1; //Month from 0 to 11
+                        var y = dataAgendamento_.getFullYear();
+
+                        $("#diaAgendamento").val(d);
+                        $("#mesAgendamento").val(m);
+                        $("#AnoAgendamento").val(y);
+                
                         $("#status").val(birds[i].status);
                     }
                 }
@@ -120,7 +129,7 @@
                           <span class='required-indicator'>*</span>
                         </label><input type="hidden" name="dataAgendamento" value="date.struct" />
                         <div class="form-row">
-                      <select  class="custom-select col-lg-4" name="dataAgendamento_day" id="dataAgendamento_day" aria-labelledby="dataAgendamento"
+                      <select id="diaAgendamento" class="custom-select col-lg-4" name="dataAgendamento_day" id="dataAgendamento_day" aria-labelledby="dataAgendamento"
                       ><option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -153,7 +162,7 @@
                       <option value="30">30</option>
                       <option value="31">31</option>
                       </select>
-                      <select class="custom-select col-lg-4" name="dataAgendamento_month" id="dataAgendamento_month" aria-labelledby="dataAgendamento"
+                      <select id="MesAgendamento" class="custom-select col-lg-4" name="dataAgendamento_month" id="dataAgendamento_month" aria-labelledby="dataAgendamento"
                       ><option value="1">Janeiro</option>
                       <option value="2">Fevereiro</option>
                       <option value="3">Março</option>
@@ -167,7 +176,7 @@
                       <option value="11">Novembro</option>
                       <option value="12">Dezembro</option>
                       </select>
-                      <select class="custom-select col-lg-4" name="dataAgendamento_year" id="dataAgendamento_year" aria-labelledby="dataAgendamento"
+                      <select id="AnoAgendamento" class="custom-select col-lg-4" name="dataAgendamento_year" id="dataAgendamento_year" aria-labelledby="dataAgendamento"
                       ><option value="2120">2120</option>
                       <option value="2119">2119</option>
                       <option value="2118">2118</option>
