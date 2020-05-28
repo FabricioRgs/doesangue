@@ -18,7 +18,7 @@
                     var ele = document.getElementById('tabelaDoador');
                     for (var i = 0; i < birds.length; i++) {
                         ele.innerHTML = ele.innerHTML +
-                        '<tr > <td>' + birds[i].nome + '</td> ' + '<td>' + birds[i].endereco + '</td> ' + '<td>' + birds[i].cpf + '</td> ' + '<td>' + birds[i].email + '</td>'+ '<td align:center><a href=/doador/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
+                        '<tr > <td>' + birds[i].nome + '</td> ' + '<td>' + birds[i].endereco + '</td> ' + '<td>' + birds[i].cpf + '</td> ' + '<td>' + birds[i].email + '</td>' + '<td align:center><a href=/atualizarDoador?id=' + birds[i].id + '> <asset:image src="wheel.png" alt="Grails Documentation" class="float-left"/></a></td>'  + '<td align:center><a href=/doador/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
                     }
                 }
             };
@@ -67,6 +67,7 @@
                         <th scope="col">Endereço</th>
                         <th scope="col">CPF</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">Editar</th>
                         <th scope="col">Deletar</th>
                     </tr>
                 </thead>

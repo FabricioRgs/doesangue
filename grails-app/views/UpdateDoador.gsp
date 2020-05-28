@@ -36,21 +36,15 @@
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 
                     var birds = JSON.parse(xhr.responseText);
-
-                    var nome = document.getElementById('nome');
-                    var id = document.getElementById('id');
-                    var cpf = document.getElementById('cpf');
-                    var endereco = document.getElementById('endereco');
-                    var email = document.getElementById('email');
-                    for (var i = 0; i < birds.length; i++) {
-                        alert(birds[i].nome);
-                        $('#nome').val(birds[i].nome);
-                        $('#id').val(birds[i].id);
-                        $('#cpf').val(birds[i].cpf);
-                        $('#endereco').val(birds[i].endereco);
-                        $('#email').val(birds[i].email);
-                        $("#form").attr('action', '/doador/update/' + birds[i].id);
-                    }
+                    //for (var i = 0; i < birds.length; i++) {
+                        //alert(birds.nome);
+                    $('#nome').val(birds.nome);
+                    $('#id').val(birds.id);
+                    $('#cpf').val(birds.cpf);
+                    $('#endereco').val(birds.endereco);
+                    $('#email').val(birds.email);
+                    $("#form").attr('action', '/doador/update/' + birds.id);
+                    //}
                 }
             };
             xhr.open(method, url, true);

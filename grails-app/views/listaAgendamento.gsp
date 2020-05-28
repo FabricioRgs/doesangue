@@ -26,7 +26,7 @@
                     for (var i = 0; i < birds.length; i++) {
                             var mydate = new Date(birds[i].dataAgendamento.substring(0,10));
                             ele.innerHTML = ele.innerHTML +
-                                '<tr > <td>' + birds[i].doador.nome + '</td> ' + '<td>' + dateToYMD(mydate) + '</td> ' + '<td>' + birds[i].status + '</td> ' + '<td align:center><a href=/agendamento/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
+                                '<tr > <td>' + birds[i].doador.nome + '</td> ' + '<td>' + dateToYMD(mydate) + '</td> ' + '<td>' + birds[i].status + '</td> ' + '<td align:center><a href=/atualizarAgendamento/?id=' + birds[i].id + '> <asset:image src="wheel.png" alt="Grails Documentation" class="float-left"/></a></td>' + '<td align:center><a href=/agendamento/delete/' + birds[i].id + '> <asset:image src="delete.png" alt="Grails Documentation" class="float-left"/></a></td>'  ;
                     }
                 }
             };
@@ -72,6 +72,7 @@
                         <th scope="col">Doador</th>
                         <th scope="col">Data</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Editar</th>
                         <th scope="col">Deletar</th>
                     </tr>
                 </thead>
