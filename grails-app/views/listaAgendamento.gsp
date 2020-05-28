@@ -56,7 +56,7 @@
 
 <div id="content" role="main" style="background-color:#fffff;height:600px">
     <section class="row colset-2-its">
-        <h1>Listagem de Doadores</h1>
+        <h1>Listagem de Agendamentos</h1>
 
         <!--<p>
             Congratulations, you have successfully started your first Grails application! At the moment

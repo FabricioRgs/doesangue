@@ -5,6 +5,7 @@
     <title>Doe Sangue</title>
 
     <script>
+        window.onload = PreencheCombo();
         window.onload = populateSelect();
 
         function dateToYMD(date) {
@@ -14,9 +15,8 @@
             return '' + (d <= 9 ? '0' + d : d) + '-' +  (m<=9 ? '0' + m : m) + '-' + y;
         }
 
-
-        function populateSelect() {
-
+        function PreencheCombo()
+        {
             var xhr2 = new XMLHttpRequest(), 
             method = 'GET',
             overrideMimeType = 'application/json',
@@ -33,7 +33,10 @@
             };
             xhr2.open(method, url, true);
             xhr2.send();
-            
+        }
+
+        function populateSelect() {
+
             let searchParams = new URLSearchParams(window.location.search);
             var urlCriada;
             if(searchParams.has('id'))
@@ -51,32 +54,22 @@
             
             xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                
-                    var birds = JSON.parse(xhr.responseText);
-                    for (var i = 0; i < birds.length; i++) {
-                        //alert(birds[i].doador.id);
-                        //$('#nome').val(birds[i].nome);
-                        //$('#id').val(birds[i].id);
-                        //$('#cpf').val(birds[i].cpf);
-                        //$('#endereco').val(birds[i].endereco);
-                        //$('#email').val(birds[i].email);
-                        //$("#form").attr('action', '/doador/update/' + birds[i].id);
 
-                        //$("#sel option:eq("+ birds[i].doador.id +")").prop('selected', true);  // To select via value
-                        $('#id').val(birds[i].id);
-                        $("#sel").val(birds[i].doador.id);
-                        $("#form").attr('action', '/agendamento/update/' + birds[i].id);
-                        var dataAgendamento_ = new Date(birds[i].dataAgendamento.substring(0,10));
-                        var d = dataAgendamento_.getDate();
-                        var m = dataAgendamento_.getMonth() + 1; //Month from 0 to 11
-                        var y = dataAgendamento_.getFullYear();
-
-                        $("#diaAgendamento").val(d);
-                        $("#mesAgendamento").val(m);
-                        $("#AnoAgendamento").val(y);
                 
-                        $("#status").val(birds[i].status);
-                    }
+                var birds = JSON.parse(xhr.responseText);
+                $('#id').val(birds.id);
+                $("#sel").val(birds.doador.id);
+                $("#form").attr('action', '/agendamento/update/' + birds.id);
+                var dataAgendamento_ = new Date(birds.dataAgendamento.substring(0,10));
+                var d = dataAgendamento_.getDate();
+                var m = dataAgendamento_.getMonth() + 1; //Month from 0 to 11
+                var y = dataAgendamento_.getFullYear();
+
+                $("#diaAgendamento").val(d);
+                $("#mesAgendamento").val(m);
+                $("#AnoAgendamento").val(y);
+        
+                $("#status").val(birds.status);
                 }
             };
             xhr.open(method, url, true);
