@@ -14,6 +14,7 @@ class UrlMappings {
         "/cadAgendamento"(view:"/cadastroAgendamento")
         "/listagemDoadores"(view:"/listaDoador")
         "/listagemAgendamento"(view:"/listaAgendamento")
+        "/atualizarUsuario"(view:"/UpdateDoador")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
