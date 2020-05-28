@@ -4,14 +4,22 @@ import grails.converters.JSON
 
 class AgendamentoController {
 
+    static scaffold = Agendamento
+
     def delete() {
       super.delete()
     }
 
     def index() {
       JSON.use('deep')
-      render Agendamento.getAll() as grails.converters.JSON
+      
+      if (params.id > 0) {
+        render Agendamento.get(params.id) as grails.converters.JSON
+      }
+      else {
+        render Agendamento.getAll() as grails.converters.JSON
+      }
     }
     
-    static scaffold = Agendamento
+    
 }
