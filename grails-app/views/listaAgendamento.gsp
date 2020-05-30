@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Doe Sangue</title>
+    <title>Doe Sangue - Listagem de Agendamentos</title>
 
     <script>
         window.onload = populateSelect();

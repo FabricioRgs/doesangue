@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Doe Sangue</title>
+    <title>Doe Sangue - Alterar Agendamento</title>
 
     <script>
         window.onload = PreencheCombo();
@@ -98,7 +98,7 @@
 
 <div id="content" role="main" style="background-color:#fffff;height:600px">
     <section class="row colset-2-its">
-        <h1>Alterar Doador</h1>
+        <h1>Alterar Agendamento</h1>
 
         <!--<p>
             Congratulations, you have successfully started your first Grails application! At the moment
