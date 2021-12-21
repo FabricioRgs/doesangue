@@ -1,0 +1,186 @@
+{
+  "tipos_pedido": [
+    {
+      "id": 1,
+      "descricao": "PEDIDO"
+    },
+    {
+      "id": 2,
+      "descricao": "TROCA"
+    },
+    {
+      "id": 3,
+      "descricao": "BONIFICACAO"
+    }
+  ],
+  "formas_pagamento": [
+    {
+      "id": 1,
+      "descricao": "BOLETO"
+    },
+    {
+      "id": 2,
+      "descricao": "CHEQUE"
+    }
+  ],
+  "condicoes_pagamento": [
+    {
+      "id": 1,
+      "descricao": "1X",
+      "forma_pagamento_id": 1
+    },
+    {
+      "id": 2,
+      "descricao": "2X",
+      "forma_pagamento_id": 1
+    },
+    {
+      "id": 3,
+      "descricao": "1X",
+      "forma_pagamento_id": 2
+    },
+    {
+      "id": 4,
+      "descricao": "2X",
+      "forma_pagamento_id": 2
+    }
+  ],
+  "empresas": [
+    {
+      "id": 1,
+      "descricao": "PALMARES"
+    },
+    {
+      "id": 2,
+      "descricao": "ABS-MG"
+    }
+  ],
+  "tabelas": [
+    {
+      "id": 1,
+      "descricao": "tab-a",
+      "uf": "MG,SP",
+      "empresa_id": 1
+    },
+    {
+      "id": 2,
+      "descricao": "tab-b",
+      "uf": "PR",
+      "empresa_id": 1
+    },
+    {
+      "id": 3,
+      "descricao": "tab-c",
+      "uf": "RJ",
+      "empresa_id": 1
+    },
+    {
+      "id": 4,
+      "descricao": "tab-d",
+      "uf": "MG",
+      "empresa_id": 2
+    },
+    {
+      "id": 5,
+      "descricao": "tab-e",
+      "uf": "GO,ES",
+      "empresa_id": 2
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "CLIENTE 1",
+      "uf": "MG",
+      "cnpj": "25.843.403/0001-23",
+      "ie": "098765432",
+      "fone1": "(12) 23423-2343",
+      "fone2": "(12) 76345-2353",
+      "email": "aaa@bb.com.br",
+      "endereco": "Rua teste, 33 - Teste - Teste/TE"
+    },
+    {
+      "id": 2,
+      "nome": "CLIENTE 2",
+      "uf": "RJ",
+      "cnpj": "99.344.075/0001-57",
+      "ie": "098765432",
+      "fone1": "(12) 23423-2343",
+      "fone2": "(12) 76345-2353",
+      "email": "aaa@bb.com.br",
+      "endereco": "Rua teste, 33 - Teste - Teste/TE"
+    }
+  ],
+  "produtos": [
+    {
+      "id": 1,
+      "descricao": "JOGO DE COPOS",
+      "unidade": "UN",
+      "ref": "52445",
+      "marca": "VILLARES",
+      "ncm": "1234567890123",
+      "url": ""
+    },
+    {
+      "id": 2,
+      "descricao": "RELOGIO DE PAREDE",
+      "unidade": "UN",
+      "ref": "87956",
+      "marca": "PLASUTIL",
+      "ncm": "1234567890123",
+      "url": ""
+    }
+  ],
+  "precos": [
+    {
+      "tabela_id": 1,
+      "produto_id": 1,
+      "preco": 12.00
+    },
+    {
+      "tabela_id": 2,
+      "produto_id": 1,
+      "preco": 12.20
+    },
+    {
+      "tabela_id": 3,
+      "produto_id": 1,
+      "preco": 12.10
+    },
+    {
+      "tabela_id": 4,
+      "produto_id": 1,
+      "preco": 12.05
+    },
+    {
+      "tabela_id": 5,
+      "produto_id": 1,
+      "preco": 12.15
+    },
+    {
+      "tabela_id": 1,
+      "produto_id": 2,
+      "preco": 45.00
+    },
+    {
+      "tabela_id": 2,
+      "produto_id": 2,
+      "preco": 45.20
+    },
+    {
+      "tabela_id": 3,
+      "produto_id": 2,
+      "preco": 45.10
+    },
+    {
+      "tabela_id": 4,
+      "produto_id": 2,
+      "preco": 45.05
+    },
+    {
+      "tabela_id": 5,
+      "produto_id": 2,
+      "preco": 45.15
+    }
+  ]
+}
